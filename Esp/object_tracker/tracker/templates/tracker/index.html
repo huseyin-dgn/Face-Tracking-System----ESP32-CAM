@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32-CAM Yüz Takip Sistemi</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+    <script>
+        // İstek atarak servo pozisyonlarını güncelleyen basit bir JavaScript
+        function fetchStatus() {
+            fetch('/status/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status').innerText = data.message;
+                })
+                .catch(error => {
+                    console.error('Error fetching status:', error);
+                });
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Canlı Kamera Akışı</h1>
+    <img src="{{ stream_url }}" width="640" height="480" />
+    <div id="status">Servo pozisyonları yükleniyor...</div>
+    <button onclick="fetchStatus()">Başlat</button>
+</body>
+</html>

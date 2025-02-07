@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32-CAM Yüz Takip Sistemi</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+   
+</head>
+<body>
+    <h1>Canlı Kamera Akışı</h1>
+    <img src="http://192.168.137.7:80/stream" width="640" height="480" />
+    <div id="status">Servo pozisyonları yükleniyor...</div>
+    <button onclick="fetchStatus()">Başlat</button>
+</body>
+</html>
